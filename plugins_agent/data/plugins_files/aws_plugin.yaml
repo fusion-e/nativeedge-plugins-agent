@@ -30,12 +30,12 @@ plugins:
         type: string
         display_label: AWS Endpoint URL
         description: |
-            The complete URL to use for the constructed
-            client. Normally, botocore will automatically construct the
-            appropriate URL to use when communicating with a service.  You
-            can specify a complete URL (including the "http/https" scheme)
-            to override this behavior.  If this value is provided,
-            then ``use_ssl`` is ignored.
+          The complete URL to use for the constructed
+          client. Normally, botocore will automatically construct the
+          appropriate URL to use when communicating with a service.  You
+          can specify a complete URL (including the "http/https" scheme)
+          to override this behavior.  If this value is provided,
+          then ``use_ssl`` is ignored.
       api_version:
         type: string
         display_label: AWS API Version
@@ -97,12 +97,12 @@ data_types:
         required: false
       endpoint_url:
         description: >
-            The complete URL to use for the constructed
-            client. Normally, botocore will automatically construct the
-            appropriate URL to use when communicating with a service.  You
-            can specify a complete URL (including the "http/https" scheme)
-            to override this behavior.  If this value is provided,
-            then ``use_ssl`` is ignored.
+          The complete URL to use for the constructed
+          client. Normally, botocore will automatically construct the
+          appropriate URL to use when communicating with a service.  You
+          can specify a complete URL (including the "http/https" scheme)
+          to override this behavior.  If this value is provided,
+          then ``use_ssl`` is ignored.
         type: string
         required: false
       api_version:
@@ -135,32 +135,32 @@ data_types:
         required: true
       AttributeDefinitions:
         description: An array of attributes that describe the key schema (dict) for the table and indexes. Keys are AttributeName, AttributeType.
-        default: []
+        default: [ ]
       KeySchema:
         description: Specifies the attributes that make up the primary key for a table or an index. The attributes in KeySchema must also be defined in the AttributeDefinitions array. For more information, see Data Model in the Amazon DynamoDB Developer Guide .
-        default: []
+        default: [ ]
       LocalSecondaryIndexes:
         description: One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.
-        default: []
+        default: [ ]
       GlobalSecondaryIndexes:
         description: One or more global secondary indexes (the maximum is five) to be created on the table..
-        default: []
+        default: [ ]
       BillingMode:
         description: Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later. Either 'PROVISIONED' or 'PAY_PER_REQUEST'.
         type: string
         required: false
       ProvisionedThroughput:
         description: Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the UpdateTable operation.
-        default: {}
+        default: { }
       StreamSpecification:
         description: The settings for DynamoDB Streams on the table.
-        default: {}
+        default: { }
       SSESpecification:
         description: Represents the settings used to enable server-side encryption.
-        default: {}
+        default: { }
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Client.create_table
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.Group.config:
     properties:
@@ -175,13 +175,13 @@ data_types:
         default: 'ne_test_group'
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.AccessKey.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_access_key
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.LoginProfile.config:
     properties:
@@ -199,7 +199,7 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_login_profile
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.User.config:
     properties:
@@ -217,10 +217,10 @@ data_types:
         required: false
       Tags:
         description: A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see Tagging IAM Identities in the IAM User Guide.
-        default: []
+        default: [ ]
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_user
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.Role.config:
     properties:
@@ -230,10 +230,10 @@ data_types:
         default:
           Version: '2012-10-17'
           Statement:
-          - Effect: Allow
-            Principal:
-              Service: 'lambda.amazonaws.com'
-            Action: 'sts:AssumeRole'
+            - Effect: Allow
+              Principal:
+                Service: 'lambda.amazonaws.com'
+              Action: 'sts:AssumeRole'
       RoleName:
         description: The name of the role to create.
         type: string
@@ -245,7 +245,7 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_role
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.RolePolicy.config:
     properties:
@@ -263,7 +263,7 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.put_role_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.InstanceProfile.config:
     properties:
@@ -278,7 +278,7 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_instance_profile
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.iam.Policy.config:
     properties:
@@ -300,7 +300,7 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/iam.html#IAM.Client.create_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.lambda.Function.config:
     properties:
@@ -321,13 +321,13 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/lambda.html#Lambda.Client.create_function
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.lambda.Invoke.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/lambda.html#Lambda.Client.invoke
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.lambda.Permission.config:
     properties:
@@ -349,61 +349,61 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/lambda.html#Lambda.Client.add_permission
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.Instance.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.create_db_instance
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.InstanceReadReplica.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.create_db_instance_read_replica
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.SubnetGroup.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.create_db_subnet_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.OptionGroup.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.create_option_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.Option.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.modify_option_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.ParameterGroup.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.create_db_parameter_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.rds.Parameter.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/rds.html#RDS.Client.modify_db_parameter_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.route53.HostedZone.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/route53.html#Route53.Client.create_hosted_zone
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.route53.RecordSet.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/route53.html#Route53.Client.change_resource_record_sets
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.LoadBalancer.config:
     properties:
@@ -413,7 +413,7 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_load_balancer
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.TargetGroup.config:
     properties:
@@ -439,7 +439,7 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_target_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Listener.config:
     properties:
@@ -453,26 +453,26 @@ data_types:
         required: true
       DefaultActions:
         description: The actions for the default rule.
-        default: []
+        default: [ ]
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_listener
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Rule.config:
     properties:
       Conditions:
         description: The conditions. Each condition specifies a field name and a single value.
-        default: []
+        default: [ ]
       Priority:
         type: integer
         description: The rule priority. A listener can't have multiple rules with the same priority.
         required: true
       Actions:
         description: The actions. Each rule must include exactly one of the following types of actions - forward, fixed-response, or redirect.
-        default: []
+        default: [ ]
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_rule
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Classic.LoadBalancer.config:
     properties:
@@ -482,10 +482,10 @@ data_types:
         required: true
       Listeners:
         description: The listeners.
-        default: {}
+        default: { }
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elb.html#ElasticLoadBalancing.Client.create_load_balancer
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Classic.Listener.config:
     properties:
@@ -495,10 +495,10 @@ data_types:
         required: false
       Listeners:
         description: The listeners.
-        default: {}
+        default: { }
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elb.html#ElasticLoadBalancing.Client.create_load_balancer_listeners
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Classic.healthCheck.healthCheck:
     properties:
@@ -535,7 +535,7 @@ data_types:
         description: The configuration information.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elb.html#ElasticLoadBalancing.Client.configure_health_check
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Classic.Policy.config:
     properties:
@@ -553,7 +553,7 @@ data_types:
         description: The name of the base policy type. To get the list of policy types, use DescribeLoadBalancerPolicyTypes.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elb.html#ElasticLoadBalancing.Client.create_load_balancer_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.elb.Classic.StickinessPolicy.config:
     properties:
@@ -571,32 +571,32 @@ data_types:
         description: The time period, in seconds, after which the cookie should be considered stale.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/elb.html#ElasticLoadBalancing.Client.create_lb_cookie_stickiness_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.SQS.Queue.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Client.create_queue
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.SNS.Topic.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/sns.html#SNS.Client.create_topic
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.SNS.Subscription.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/sns.html#SNS.Client.get_subscription_attributes
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.s3.BucketTagging.Tagging:
     properties:
       TagSet:
         required: true
         description: A list of dictionaries with a keys Key and Value.
-        default: []
+        default: [ ]
 
   nativeedge.datatypes.aws.s3.BucketTagging.config:
     properties:
@@ -610,12 +610,12 @@ data_types:
         description: The tagging set.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.put_bucket_tagging
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.s3.BucketLifecycleConfiguration.Lifecycle:
     properties:
       Rules:
-        default: []
+        default: [ ]
         required: true
         description: A list of rules in dict format with keys Prefix, Status, etc.
 
@@ -631,7 +631,7 @@ data_types:
         description: The lifecycle configuration.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.put_bucket_lifecycle
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.s3.BucketPolicy.config:
     properties:
@@ -646,10 +646,10 @@ data_types:
       Policy:
         required: true
         description: The bucket policy as a JSON document.
-        default: {}
+        default: { }
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.put_bucket_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.s3.CreateBucketConfiguration:
     properties:
@@ -674,7 +674,7 @@ data_types:
         description: Specifies the region where the bucket will be created.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.create_bucket
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.s3.BucketObject.config:
     properties:
@@ -692,7 +692,7 @@ data_types:
         description: Object key for which the PUT operation was initiated.
       kwargs:
         description: https://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.put_object
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Vpc.config:
     properties:
@@ -702,13 +702,13 @@ data_types:
         required: true
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_vpc
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.VpcPeering.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_vpc_peering_connection
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.VpcPeeringRequest.config:
     properties:
@@ -716,7 +716,7 @@ data_types:
         description: >
           http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.accept_vpc_peering_connection
           http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.reject_vpc_peering_connection
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Subnet.config:
     properties:
@@ -734,7 +734,7 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_subnet
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.SecurityGroup.config:
     properties:
@@ -744,26 +744,26 @@ data_types:
         required: true
       GroupName:
         type: string
-        description:  The name of the security group.
+        description: The name of the security group.
         required: true
       VpcId:
         type: string
-        description:  The ID of the VPC. Required for EC2-VPC.
+        description: The ID of the VPC. Required for EC2-VPC.
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_security_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.SecurityGroupRules.config:
     properties:
       IpPermissions:
         description: One or more sets of IP permissions.
-        default: []
+        default: [ ]
       kwargs:
         description: >
           http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.authorize_security_group_ingress
           http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.authorize_security_group_egress
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.NATGateway.config:
     properties:
@@ -772,19 +772,19 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_nat_gateway
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.NetworkACL.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_network_acl
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Interface.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_network_interface
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Instances.LaunchTemplate:
     properties:
@@ -817,19 +817,19 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.run_instances
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.SpotInstances.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.request_spot_instances
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.SpotFleetRequest.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.request_spot_fleet
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Keypair.config:
     properties:
@@ -846,7 +846,7 @@ data_types:
           See documentation: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.import_key_pair.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_key_pair
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.ElasticIP.config:
     properties:
@@ -856,85 +856,85 @@ data_types:
         default: vpc
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.allocate_address
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.NetworkAclEntry.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_network_acl_entry
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.DHCPOptions.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_dhcp_options
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.VPNGateway.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_vpn_gateway
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.VPNConnection.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_vpn_connection
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.VPNConnectionRoute.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_vpn_connection_route
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.CustomerGateway.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_customer_gateway
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.InternetGateway.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_internet_gateway
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.TransitGateway.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_transit_gateway
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.TransitGatewayVPCAttachment.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_transit_gateway_vpc_attachment
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.TransitGatewayRouteTable.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_transit_gateway_route_table
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.TransitGatewayRoute.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_transit_gateway_route
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.RouteTable.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_route_table
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Route.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_route
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Image.config.create.BlockDeviceMappings:
     properties:
@@ -989,7 +989,7 @@ data_types:
         required: false
         description: ~
       kwargs:
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.Image.config.create.BlockDeviceMappings.Ebs:
     properties:
@@ -1047,7 +1047,7 @@ data_types:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_tags
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.EBSVolume.config:
     properties:
@@ -1061,13 +1061,13 @@ data_types:
         required: false
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.create_volume
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ec2.EBSAttachment.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Client.attach_volume
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.autoscaling.LaunchTemplate:
     properties:
@@ -1112,7 +1112,7 @@ data_types:
         description: The maximum size of the group.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/autoscaling.html#AutoScaling.Client.create_auto_scaling_group
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.autoscaling.LaunchConfiguration.config:
     properties:
@@ -1138,7 +1138,7 @@ data_types:
         description: The name of the key pair.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/autoscaling.html#AutoScaling.Client.create_launch_configuration
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.autoscaling.Policy.config:
     properties:
@@ -1164,7 +1164,7 @@ data_types:
         description: The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/autoscaling.html#AutoScaling.Client.put_scaling_policy
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.autoscaling.LifecycleHook.config:
     properties:
@@ -1182,116 +1182,116 @@ data_types:
         description: The instance state to which you want to attach the lifecycle hook.
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/autoscaling.html#AutoScaling.Client.put_lifecycle_hook
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.autoscaling.NotificationConfiguration.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/autoscaling.html#AutoScaling.Client.put_notification_configuration
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cloudwatch.Alarm.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm
-        default: {}
+        default: { }
 
 
   nativeedge.datatypes.aws.cloudwatch.Rule.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/events.html#CloudWatchEvents.Client.put_rule
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cloudwatch.Event.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/events.html#CloudWatchEvents.Client.put_events
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cloudwatch.Target.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/events.html#CloudWatchEvents.Client.put_targets
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.efs.FileSystem.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/efs.html#EFS.Client.create_file_system
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.efs.FileSystemTags.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/efs.html#EFS.Client.create_tags
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.efs.MountTarget.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/efs.html#EFS.Client.create_mount_target
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.kms.CustomerMasterKey.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/kms.html#KMS.Client.create_key
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.kms.Alias.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/kms.html#KMS.Client.create_alias
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.kms.Grant.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/kms.html#KMS.Client.create_grant
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.CloudFormation.Stack.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html#CloudFormation.Client.create_stack
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ECS.Cluster.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ecs.html#ECS.Client.create_cluster
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ECS.Service.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ecs.html#ECS.Client.create_service
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ECS.TaskDefinition.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/ecs.html#ECS.Client.register_task_definition
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.EKS.Cluster.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/eks.html#EKS.Client.create_cluster
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.EKS.NodeGroup.config:
     properties:
       kwargs:
         description: http://boto3.readthedocs.io/en/latest/reference/services/eks.html#EKS.Client.create_nodegroup
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.codepipeline.Pipeline.config:
     properties:
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Client.create_pipeline
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cognitoidp.UserPool.config:
     properties:
@@ -1363,7 +1363,7 @@ data_types:
         required: false
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cognitoidp.UserPoolClient.config:
     properties:
@@ -1432,7 +1432,7 @@ data_types:
         required: false
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_client
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cognitoidp.IdentityProvider.config:
     properties:
@@ -1456,7 +1456,7 @@ data_types:
         required: false
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_identity_provider
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.cognito.IdentityPool.config:
     properties:
@@ -1489,7 +1489,7 @@ data_types:
         required: false
       kwargs:
         description: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-identity.html#CognitoIdentity.Client.create_identity_pool
-        default: {}
+        default: { }
 
   nativeedge.datatypes.aws.ecr.AuthenticationToken.config:
     properties:
@@ -1563,7 +1563,7 @@ dsl_definitions:
         Configuration key-value data to be passed as-is to the corresponding
         Boto3 method. Key names must match the case that Boto3 requires.
       required: false
-      default: {}
+      default: { }
 
   # Every resource uses this property unless noted.
   external_resource: &external_resource
@@ -1616,7 +1616,7 @@ node_types:
   nativeedge.nodes.aws.dynamodb.Table:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1635,7 +1635,7 @@ node_types:
   nativeedge.nodes.aws.iam.Group:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1683,7 +1683,7 @@ node_types:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
 
   nativeedge.nodes.aws.iam.LoginProfile:
     derived_from: nativeedge.nodes.Root
@@ -1712,12 +1712,12 @@ node_types:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
 
   nativeedge.nodes.aws.iam.User:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1742,14 +1742,14 @@ node_types:
   nativeedge.nodes.aws.iam.Role:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       policy_arns:
         description: >
           List of ARN policies to be provided.
           The list needs to contain dictionaries containing a single ARN
           policy with the key 'PolicyArn'
         type: list
-        default: []
+        default: [ ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1777,7 +1777,7 @@ node_types:
   nativeedge.nodes.aws.iam.RolePolicy:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1802,7 +1802,7 @@ node_types:
   nativeedge.nodes.aws.iam.InstanceProfile:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1827,7 +1827,7 @@ node_types:
   nativeedge.nodes.aws.iam.Policy:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1852,7 +1852,7 @@ node_types:
   nativeedge.nodes.aws.lambda.Function:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1904,12 +1904,12 @@ node_types:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
 
   nativeedge.nodes.aws.lambda.Permission:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1931,7 +1931,7 @@ node_types:
   nativeedge.nodes.aws.rds.Instance:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1959,7 +1959,7 @@ node_types:
   nativeedge.nodes.aws.rds.InstanceReadReplica:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -1987,7 +1987,7 @@ node_types:
   nativeedge.nodes.aws.rds.SubnetGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2015,7 +2015,7 @@ node_types:
   nativeedge.nodes.aws.rds.OptionGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2041,7 +2041,7 @@ node_types:
   nativeedge.nodes.aws.rds.Option:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2058,7 +2058,7 @@ node_types:
   nativeedge.nodes.aws.rds.ParameterGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2087,7 +2087,7 @@ node_types:
   nativeedge.nodes.aws.rds.Parameter:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2104,7 +2104,7 @@ node_types:
   nativeedge.nodes.aws.route53.HostedZone:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2155,13 +2155,13 @@ node_types:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
 
   # Reference: https://boto3.readthedocs.io/en/latest/reference/services/route53.html#Route53.Client.change_resource_record_sets
   nativeedge.nodes.aws.route53.RecordSet:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2184,7 +2184,7 @@ node_types:
   nativeedge.nodes.aws.SQS.Queue:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2207,7 +2207,7 @@ node_types:
   nativeedge.nodes.aws.SNS.Topic:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2229,7 +2229,7 @@ node_types:
   nativeedge.nodes.aws.SNS.Subscription:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2254,7 +2254,7 @@ node_types:
   nativeedge.nodes.aws.elb.LoadBalancer:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2283,7 +2283,7 @@ node_types:
   nativeedge.nodes.aws.elb.Classic.LoadBalancer:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2312,7 +2312,7 @@ node_types:
   nativeedge.nodes.aws.elb.Classic.HealthCheck:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2335,7 +2335,7 @@ node_types:
   nativeedge.nodes.aws.elb.Listener:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2361,7 +2361,7 @@ node_types:
   nativeedge.nodes.aws.elb.Classic.Listener:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2387,7 +2387,7 @@ node_types:
   nativeedge.nodes.aws.elb.Rule:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2413,7 +2413,7 @@ node_types:
   nativeedge.nodes.aws.elb.TargetGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2442,7 +2442,7 @@ node_types:
   nativeedge.nodes.aws.elb.Classic.Policy:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2486,7 +2486,7 @@ node_types:
   nativeedge.nodes.aws.s3.BaseBucket:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *resource_id]
+      <<: [ *external_resource, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2510,7 +2510,7 @@ node_types:
   nativeedge.nodes.aws.s3.BaseBucketObject:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *resource_id]
+      <<: [ *external_resource, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2564,7 +2564,7 @@ node_types:
   nativeedge.nodes.aws.s3.BucketPolicy:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2593,7 +2593,7 @@ node_types:
   nativeedge.nodes.aws.s3.BucketLifecycleConfiguration:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2621,7 +2621,7 @@ node_types:
   nativeedge.nodes.aws.s3.BucketTagging:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2662,7 +2662,7 @@ node_types:
   nativeedge.nodes.aws.ec2.BaseType:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id, *tags_property]
+      <<: [ *external_resource, *client_config, *resource_id, *tags_property ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2697,7 +2697,7 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.vpc.check_drift
-          inputs: {}
+          inputs: { }
         update:
           implementation: aws.ne_aws.ec2.resources.vpc.update
 
@@ -2729,7 +2729,7 @@ node_types:
   nativeedge.nodes.aws.ec2.VpcPeeringRequest:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2792,7 +2792,7 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.subnet.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.SecurityGroup:
     derived_from: nativeedge.nodes.aws.ec2.BaseType
@@ -2808,24 +2808,24 @@ node_types:
       nativeedge.interfaces.lifecycle:
         precreate:
           implementation: aws.ne_aws.ec2.resources.securitygroup.prepare
-#          inputs: *operation_inputs
+        #          inputs: *operation_inputs
         create:
           implementation: aws.ne_aws.ec2.resources.securitygroup.create
-#          inputs: *operation_inputs
+        #          inputs: *operation_inputs
         poststart:
           implementation: aws.ne_aws.ec2.resources.securitygroup.poststart
-#          inputs: *operation_inputs
+        #          inputs: *operation_inputs
         delete:
           implementation: aws.ne_aws.ec2.resources.securitygroup.delete
-#          inputs: *operation_inputs
+        #          inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.securitygroup.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.SecurityGroupRuleIngress:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2842,12 +2842,12 @@ node_types:
           implementation: aws.ne_aws.ec2.resources.securitygroup.revoke_ingress_rules
         check_drift:
           implementation: aws.ne_aws.ec2.resources.securitygroup.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.SecurityGroupRuleEgress:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -2867,7 +2867,7 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.securitygroup.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.NATGateway:
     derived_from: nativeedge.nodes.aws.ec2.BaseType
@@ -2930,12 +2930,12 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.eni.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.Instances:
     derived_from: nativeedge.nodes.Compute
     properties:
-      <<: [*external_resource, *client_config, *resource_id, *tags_property]
+      <<: [ *external_resource, *client_config, *resource_id, *tags_property ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -2987,12 +2987,12 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.ec2.resources.instances.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.ec2.SpotInstances:
     derived_from: nativeedge.nodes.Compute
     properties:
-      <<: [*external_resource, *client_config, *resource_id, *tags_property]
+      <<: [ *external_resource, *client_config, *resource_id, *tags_property ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3103,7 +3103,7 @@ node_types:
   nativeedge.nodes.aws.ec2.ElasticIP:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id, *tags_property]
+      <<: [ *external_resource, *client_config, *resource_id, *tags_property ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3180,7 +3180,7 @@ node_types:
   nativeedge.nodes.aws.ec2.NetworkAclEntry:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3202,7 +3202,7 @@ node_types:
   nativeedge.nodes.aws.ec2.DHCPOptions:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3263,7 +3263,7 @@ node_types:
   nativeedge.nodes.aws.ec2.VPNConnection:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3285,7 +3285,7 @@ node_types:
   nativeedge.nodes.aws.ec2.VPNConnectionRoute:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3409,7 +3409,7 @@ node_types:
   nativeedge.nodes.aws.ec2.TransitGatewayRoute:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3465,7 +3465,7 @@ node_types:
   nativeedge.nodes.aws.ec2.Route:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3497,7 +3497,7 @@ node_types:
         type: boolean
         default: true
         description: indecates if external_resourc should be used
-      <<: [*client_config, *resource_id]
+      <<: [ *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3525,7 +3525,7 @@ node_types:
   nativeedge.nodes.aws.ec2.Tags:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3547,7 +3547,7 @@ node_types:
   nativeedge.nodes.aws.ec2.EBSVolume:
     derived_from: nativeedge.nodes.aws.ec2.BaseType
     properties:
-      <<: [*external_resource, *client_config, *resource_id, *device_name]
+      <<: [ *external_resource, *client_config, *resource_id, *device_name ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3579,7 +3579,7 @@ node_types:
   nativeedge.nodes.aws.ec2.EBSAttachment:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3607,7 +3607,7 @@ node_types:
   nativeedge.nodes.aws.autoscaling.Group:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3638,7 +3638,7 @@ node_types:
   nativeedge.nodes.aws.autoscaling.LaunchConfiguration:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3660,7 +3660,7 @@ node_types:
   nativeedge.nodes.aws.autoscaling.Policy:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3688,7 +3688,7 @@ node_types:
   nativeedge.nodes.aws.autoscaling.LifecycleHook:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3716,7 +3716,7 @@ node_types:
   nativeedge.nodes.aws.autoscaling.NotificationConfiguration:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3738,7 +3738,7 @@ node_types:
   nativeedge.nodes.aws.cloudwatch.Alarm:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3760,7 +3760,7 @@ node_types:
   nativeedge.nodes.aws.cloudwatch.Rule:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3782,7 +3782,7 @@ node_types:
   nativeedge.nodes.aws.cloudwatch.Event:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3801,7 +3801,7 @@ node_types:
   nativeedge.nodes.aws.cloudwatch.Target:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3823,7 +3823,7 @@ node_types:
   nativeedge.nodes.aws.efs.FileSystem:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3845,7 +3845,7 @@ node_types:
   nativeedge.nodes.aws.efs.MountTarget:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3867,7 +3867,7 @@ node_types:
   nativeedge.nodes.aws.efs.FileSystemTags:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3889,7 +3889,7 @@ node_types:
   nativeedge.nodes.aws.kms.CustomerMasterKey:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3917,7 +3917,7 @@ node_types:
   nativeedge.nodes.aws.kms.Alias:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3939,7 +3939,7 @@ node_types:
   nativeedge.nodes.aws.kms.Grant:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3961,7 +3961,7 @@ node_types:
   nativeedge.nodes.aws.CloudFormation.Stack:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -3980,7 +3980,7 @@ node_types:
               type: integer
               default: 0
               description: |
-               Minimum waiting time in seconds to complete the operation.
+                Minimum waiting time in seconds to complete the operation.
             <<: *operation_inputs
         start:
           implementation: aws.ne_aws.cloudformation.resources.stack.start
@@ -3992,7 +3992,7 @@ node_types:
               type: integer
               default: 0
               description: |
-               Minimum waiting time in seconds to complete the operation.
+                Minimum waiting time in seconds to complete the operation.
             <<: *operation_inputs
         pull:
           implementation: aws.ne_aws.cloudformation.resources.stack.pull
@@ -4000,7 +4000,7 @@ node_types:
   nativeedge.nodes.aws.ecs.Cluster:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4022,7 +4022,7 @@ node_types:
   nativeedge.nodes.aws.ecs.Service:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4044,7 +4044,7 @@ node_types:
   nativeedge.nodes.aws.ecs.TaskDefinition:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4064,8 +4064,8 @@ node_types:
           inputs: *operation_inputs
 
 
-  ####
-   # Swift Nodes
+    ####
+    # Swift Nodes
   ###
   nativeedge.nodes.swift.s3.Bucket:
     derived_from: nativeedge.nodes.aws.s3.BaseBucket
@@ -4077,13 +4077,13 @@ node_types:
     properties:
       <<: *swift_config
 
-  ####
-   # EKS Nodes
+    ####
+    # EKS Nodes
   ###
   nativeedge.nodes.aws.eks.Cluster:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -4118,12 +4118,12 @@ node_types:
           inputs: *operation_inputs
         check_drift:
           implementation: aws.ne_aws.eks.resources.cluster.check_drift
-          inputs: {}
+          inputs: { }
 
   nativeedge.nodes.aws.eks.NodeGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       nativeedge_tagging:
         description: an automatic tag to identify the ec2 instance
         type: boolean
@@ -4157,13 +4157,13 @@ node_types:
   nativeedge.nodes.aws.codepipeline.Pipeline:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
           Boto3 method. Key names must match the case that Boto3 requires.
         type: nativeedge.datatypes.aws.codepipeline.Pipeline.config
-#        required: false
+    #        required: false
     interfaces:
       nativeedge.interfaces.lifecycle:
         precreate:
@@ -4184,7 +4184,7 @@ node_types:
   nativeedge.nodes.aws.cognitoidp.UserPool:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4205,7 +4205,7 @@ node_types:
   nativeedge.nodes.aws.cognitoidp.UserPoolClient:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4226,7 +4226,7 @@ node_types:
   nativeedge.nodes.aws.cognitoidp.IdentityProvider:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4247,7 +4247,7 @@ node_types:
   nativeedge.nodes.aws.cognito.IdentityPool:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4268,7 +4268,7 @@ node_types:
   nativeedge.nodes.aws.ecr.AuthenticationToken:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4286,7 +4286,7 @@ node_types:
   nativeedge.nodes.aws.ecr.Repository:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*external_resource, *client_config, *resource_id]
+      <<: [ *external_resource, *client_config, *resource_id ]
       resource_config:
         description: >
           Configuration key-value data to be passed as-is to the corresponding
@@ -4310,7 +4310,7 @@ node_types:
       <<: *client_config
       regions:
         type: list
-        default: []
+        default: [ ]
       resource_config:
         type: dict
         default:
@@ -4343,7 +4343,7 @@ relationships:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
         postconfigure:
           implementation: ~
           inputs:
@@ -4352,7 +4352,7 @@ relationships:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
         establish:
           implementation: ~
           inputs:
@@ -4361,7 +4361,7 @@ relationships:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
         unlink:
           implementation: ~
           inputs:
@@ -4370,7 +4370,7 @@ relationships:
                 Configuration key-value data to be passed as-is to the corresponding
                 Boto3 method. Key names must match the case that Boto3 requires.
               required: false
-              default: {}
+              default: { }
 
 
 
@@ -4688,11 +4688,11 @@ relationships:
             Options:
               type: dict
               description: See documentation.
-              default: {}
+              default: { }
             TagSpecifications:
               type: list
               description: See documentation.
-              default: []
+              default: [ ]
     source_interfaces:
       nativeedge.interfaces.relationship_lifecycle:
         unlink:
@@ -4702,7 +4702,7 @@ relationships:
               # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.accept_transit_gateway_vpc_attachment
               type: string
               description: The Gateway Attachment ID that is created in request_vpc_attachment. The value can be provided as an input, but if the value is not provided, then the plugin will perform the same default lookup as indicated byt the get attribute intrinsic function.
-              default: { get_attribute: [ SOURCE, TransitGatewayVpcAttachments, { get_attribute: [ TARGET, aws_resource_id ] }, TransitGatewayVpcAttachment, TransitGatewayAttachmentId] }
+              default: { get_attribute: [ SOURCE, TransitGatewayVpcAttachments, { get_attribute: [ TARGET, aws_resource_id ] }, TransitGatewayVpcAttachment, TransitGatewayAttachmentId ] }
 
   ##
   # Refresh kubeconfig for EKS cluster in runtime properties. Use this relationship on kubernetes
@@ -4713,21 +4713,21 @@ relationships:
     derived_from: nativeedge.relationships.aws.connected_to
     target_interfaces:
       nativeedge.interfaces.relationship_lifecycle:
-        establish: { implementation: aws.ne_aws.eks.resources.cluster.refresh_kubeconfig}
+        establish: { implementation: aws.ne_aws.eks.resources.cluster.refresh_kubeconfig }
         unlink: { implementation: aws.ne_aws.eks.resources.cluster.refresh_kubeconfig }
 
 workflows:
 
   discover_and_deploy:
-#    description: >
-#      Using provided credentials, list all discoverable resources of specified resource type.
-#      (Default is nativeedge.nodes.aws.eks.Cluster).
-#      This is restricted to provided credentials and region.
-#      Install new deployments for them.
+    #    description: >
+    #      Using provided credentials, list all discoverable resources of specified resource type.
+    #      (Default is nativeedge.nodes.aws.eks.Cluster).
+    #      This is restricted to provided credentials and region.
+    #      Install new deployments for them.
     mapping: aws.ne_aws.workflows.discover.discover_and_deploy
     availability_rules:
-      node_instances_active: ['all']
-      node_types_required: ['nativeedge.nodes.resources.AmazonWebServices']
+      node_instances_active: [ 'all' ]
+      node_types_required: [ 'nativeedge.nodes.resources.AmazonWebServices' ]
     parameters:
       node_id:
         type: node_id
@@ -4736,8 +4736,8 @@ workflows:
         default: ''
       resource_types:
         description: >
-            The name of the resource to discover.
-            Default is [AWS::EKS::CLUSTER], as that is the only currently supported resource.
+          The name of the resource to discover.
+          Default is [AWS::EKS::CLUSTER], as that is the only currently supported resource.
         type: list
         default:
           - AWS::EKS::CLUSTER

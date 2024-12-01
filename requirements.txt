@@ -1,0 +1,4 @@
+langchain
+langchain-ollama
+
+PyYAML~=6.0.2

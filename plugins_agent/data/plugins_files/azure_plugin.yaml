@@ -80,7 +80,7 @@ data_types:
           You can provide any set of environment variables for use by managed identity.
           For more information, please see: https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python.
           If you use this approach other parameters will be ignored.
-        default: {}
+        default: { }
       username:
         type: string
         required: false
@@ -248,12 +248,12 @@ data_types:
         description: >
           Quote, in GiB, for the maximum size of the file share
         required: false
-#      fail_on_exist:
-#        description: >
-#          If true, causes the operation to raise a NonRecoverableError if
-#          the file share already exists. If false, issues a warning and
-#          continues execution.
-#        default: false
+  #      fail_on_exist:
+  #        description: >
+  #          If true, causes the operation to raise a NonRecoverableError if
+  #          the file share already exists. If false, issues a warning and
+  #          continues execution.
+  #        default: false
 
   nativeedge.types.azure.network.VirtualNetworkConfig:
     description: >
@@ -262,8 +262,8 @@ data_types:
       addressSpace:
         default:
           addressPrefixes:
-          - 10.10.0.0/16
-          - 172.16.0.0/16
+            - 10.10.0.0/16
+            - 172.16.0.0/16
         required: true
       dhcpOptions:
         required: false
@@ -540,7 +540,7 @@ data_types:
       tags:
         description: >
           A dict containing resource tags
-        default: {}
+        default: { }
       kubernetes_version:
         type: string
         default: ''
@@ -550,27 +550,27 @@ data_types:
       agent_pool_profiles:
         description: >
           An array to pass an array of dict for agent profile
-        default: []
+        default: [ ]
       linux_profile:
         description: >
           A dict to define linux profile with user name and public keys
-        default: {}
+        default: { }
       network_profile:
         description: >
           A dict to define network profile loadbalancer,outbound,IPs
-        default: {}
+        default: { }
       windows_profile:
         description: >
           A dict to define windows profile with user name and password
-        default: {}
+        default: { }
       service_principal_profile:
         description: >
           A dict to define service service_principal_profile [client_id, secret]
-        default: {}
+        default: { }
       addon_profiles:
         description: >
           A dict to define addons to the managed cluster
-        default: {}
+        default: { }
       enable_rbac:
         type: boolean
         default: true
@@ -623,7 +623,7 @@ data_types:
         type: dict
         required: false
         description: A dict of keys and values, which will be sent to update_fn_name.
-        default: {}
+        default: { }
       delete:
         type: dict
         required: true
@@ -633,7 +633,7 @@ node_types:
   nativeedge.nodes.azure.ResourceGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -663,7 +663,7 @@ node_types:
   nativeedge.nodes.azure.storage.StorageAccount:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -709,7 +709,7 @@ node_types:
   nativeedge.nodes.azure.storage.DataDisk:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       location:
         type: string
         description: >
@@ -735,7 +735,7 @@ node_types:
   nativeedge.nodes.azure.storage.FileShare:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       location:
         type: string
         description: >
@@ -768,7 +768,7 @@ node_types:
   nativeedge.nodes.azure.network.VirtualNetwork:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -810,7 +810,7 @@ node_types:
   nativeedge.nodes.azure.network.NetworkSecurityGroup:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -852,7 +852,7 @@ node_types:
   nativeedge.nodes.azure.network.NetworkSecurityRule:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -901,7 +901,7 @@ node_types:
   nativeedge.nodes.azure.network.Subnet:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -950,7 +950,7 @@ node_types:
   nativeedge.nodes.azure.network.RouteTable:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -992,7 +992,7 @@ node_types:
   nativeedge.nodes.azure.network.Route:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1041,7 +1041,7 @@ node_types:
   nativeedge.nodes.azure.network.NetworkInterfaceCard:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1090,7 +1090,7 @@ node_types:
   nativeedge.nodes.azure.network.IPConfiguration:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1128,7 +1128,7 @@ node_types:
   nativeedge.nodes.azure.network.PublicIPAddress:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1171,7 +1171,7 @@ node_types:
   nativeedge.nodes.azure.compute.AvailabilitySet:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1213,7 +1213,7 @@ node_types:
   nativeedge.nodes.azure.compute.VirtualMachine:
     derived_from: nativeedge.nodes.Compute
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1292,7 +1292,7 @@ node_types:
                 should specify a command to start the execution of one of them.
               default: ''
             file_uris:
-              default: []
+              default: [ ]
         stop:
           implementation: azure.ne_azure.resources.compute.virtualmachine.virtualmachine.stop
         poststop:
@@ -1317,11 +1317,11 @@ node_types:
             script:
               type: list
               description: https://learn.microsoft.com/en-us/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.models.runcommandinput?view=azure-python
-              default: []
+              default: [ ]
             parameters:
               type: list
               description: https://learn.microsoft.com/en-us/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.models.runcommandinputparameter?view=azure-python
-              default: []
+              default: [ ]
 
   nativeedge.nodes.azure.compute.WindowsVirtualMachine:
     derived_from: nativeedge.nodes.azure.compute.VirtualMachine
@@ -1353,16 +1353,16 @@ node_types:
             script:
               type: list
               description: https://learn.microsoft.com/en-us/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.models.runcommandinput?view=azure-python
-              default: []
+              default: [ ]
             parameters:
               type: list
               description: https://learn.microsoft.com/en-us/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.models.runcommandinputparameter?view=azure-python
-              default: []
+              default: [ ]
 
   nativeedge.nodes.azure.compute.VirtualMachineExtension:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1424,7 +1424,7 @@ node_types:
   nativeedge.nodes.azure.network.LoadBalancer:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1467,7 +1467,7 @@ node_types:
   nativeedge.nodes.azure.network.LoadBalancer.BackendAddressPool:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1507,7 +1507,7 @@ node_types:
   nativeedge.nodes.azure.network.LoadBalancer.Probe:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1552,7 +1552,7 @@ node_types:
   nativeedge.nodes.azure.network.LoadBalancer.IncomingNATRule:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1597,7 +1597,7 @@ node_types:
   nativeedge.nodes.azure.network.LoadBalancer.Rule:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       api_version:
         type: string
         description: >
@@ -1679,7 +1679,7 @@ node_types:
         description: >
           Deployment params
         required: false
-        default: {}
+        default: { }
     interfaces:
       nativeedge.interfaces.lifecycle:
         create: azure.ne_azure.resources.deployment.create
@@ -1706,20 +1706,20 @@ node_types:
           implementation: azure.ne_azure.resources.compute.container_service.create
           inputs:
             name:
-              default: { get_property: [SELF, name]}
+              default: { get_property: [ SELF, name ] }
             resource_group:
-              default: { get_property: [SELF, resource_group]}
+              default: { get_property: [ SELF, resource_group ] }
             container_service_config:
-              default: { get_property: [SELF, container_service_config]}
+              default: { get_property: [ SELF, container_service_config ] }
             client_config:
-              default: { get_property: [SELF, client_config]}
+              default: { get_property: [ SELF, client_config ] }
         delete:
           implementation: azure.ne_azure.resources.compute.container_service.delete
 
   nativeedge.nodes.azure.Plan:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       resource_group:
         required: true
         type: string
@@ -1734,20 +1734,20 @@ node_types:
           implementation: azure.ne_azure.resources.app_service.plan.create
           inputs:
             name:
-              default: { get_property: [SELF, name]}
+              default: { get_property: [ SELF, name ] }
             resource_group:
-              default: { get_property: [SELF, resource_group]}
+              default: { get_property: [ SELF, resource_group ] }
             plan_details:
-              default: { get_property: [SELF, plan_details]}
+              default: { get_property: [ SELF, plan_details ] }
             client_config:
-              default: { get_property: [SELF, client_config]}
+              default: { get_property: [ SELF, client_config ] }
         delete:
           implementation: azure.ne_azure.resources.app_service.plan.delete
 
   nativeedge.nodes.azure.WebApp:
     derived_from: nativeedge.nodes.Root
     properties:
-      <<: [*common_properties, *existing_resources]
+      <<: [ *common_properties, *existing_resources ]
       resource_group:
         required: true
         type: string
@@ -1762,13 +1762,13 @@ node_types:
           implementation: azure.ne_azure.resources.app_service.webapp.create
           inputs:
             name:
-              default: { get_property: [SELF, name]}
+              default: { get_property: [ SELF, name ] }
             resource_group:
-              default: { get_property: [SELF, resource_group]}
+              default: { get_property: [ SELF, resource_group ] }
             app_config:
-              default: { get_property: [SELF, app_config]}
+              default: { get_property: [ SELF, app_config ] }
             client_config:
-              default: { get_property: [SELF, client_config]}
+              default: { get_property: [ SELF, client_config ] }
         delete:
           implementation: azure.ne_azure.resources.app_service.webapp.delete
 
@@ -1790,9 +1790,9 @@ node_types:
           implementation: azure.ne_azure.resources.app_service.publishing_user.set_user
           inputs:
             user_details:
-              default: { get_property: [SELF, user_details]}
+              default: { get_property: [ SELF, user_details ] }
             client_config:
-              default: { get_property: [SELF, client_config]}
+              default: { get_property: [ SELF, client_config ] }
 
   nativeedge.nodes.azure.compute.ManagedCluster:
     derived_from: nativeedge.nodes.Root
@@ -1831,13 +1831,13 @@ node_types:
           implementation: azure.ne_azure.resources.compute.managed_cluster.create
           inputs:
             resource_group:
-              default: { get_property: [SELF, resource_group]}
+              default: { get_property: [ SELF, resource_group ] }
             cluster_name:
-              default: { get_property: [SELF, name]}
+              default: { get_property: [ SELF, name ] }
             resource_config:
-              default: { get_property: [SELF, resource_config]}
+              default: { get_property: [ SELF, resource_config ] }
             client_config:
-              default: { get_property: [SELF, client_config]}
+              default: { get_property: [ SELF, client_config ] }
         poststart:
           implementation: azure.ne_azure.resources.compute.managed_cluster.store_kubeconf_if_needed
         delete:
@@ -1852,7 +1852,7 @@ node_types:
         required: false
       locations:
         type: list
-        default: []
+        default: [ ]
       resource_config:
         type: dict
         default:
@@ -2104,21 +2104,21 @@ relationships:
     derived_from: nativeedge.relationships.connected_to
     target_interfaces:
       nativeedge.interfaces.relationship_lifecycle:
-        establish: { implementation: azure.ne_azure.resources.compute.managed_cluster.refresh_kubeconfig}
+        establish: { implementation: azure.ne_azure.resources.compute.managed_cluster.refresh_kubeconfig }
         unlink: { implementation: azure.ne_azure.resources.compute.managed_cluster.refresh_kubeconfig }
 
 workflows:
 
   discover_and_deploy:
-#    description: >
-#      Using provided credentials, list all discoverable resources of specified resource type.
-#      (Default is nativeedge.nodes.azure.compute.ManagedCluster).
-#      This is restricted to provided credentials and region.
-#      Install new deployments for them.
+    #    description: >
+    #      Using provided credentials, list all discoverable resources of specified resource type.
+    #      (Default is nativeedge.nodes.azure.compute.ManagedCluster).
+    #      This is restricted to provided credentials and region.
+    #      Install new deployments for them.
     mapping: azure.ne_azure.workflows.discover.discover_and_deploy
     availability_rules:
-      node_instances_active: ['all', 'partial']
-      node_types_required: ['nativeedge.nodes.azure.resources.Azure']
+      node_instances_active: [ 'all', 'partial' ]
+      node_types_required: [ 'nativeedge.nodes.azure.resources.Azure' ]
     parameters:
       node_id:
         type: node_id
@@ -2127,8 +2127,8 @@ workflows:
         default: ''
       resource_types:
         description: >
-            The name of the resource to discover.
-            Default is [Microsoft.ContainerService/ManagedClusters], as that is the only currently supported resource.
+          The name of the resource to discover.
+          Default is [Microsoft.ContainerService/ManagedClusters], as that is the only currently supported resource.
         type: list
         default:
           - Microsoft.ContainerService/ManagedClusters
