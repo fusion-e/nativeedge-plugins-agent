@@ -25,7 +25,7 @@ def get_context_from_yaml(yaml_data: dict) -> str:
     return yaml.dump(yaml_data, default_flow_style=False)
 
 
-class AWSAgent:
+class PluginsAgent:
     def __init__(self, model_name: str):
         base_url = "http://10.227.242.120:11434"
         self.model = OllamaLLM(model=model_name, base_url=base_url)

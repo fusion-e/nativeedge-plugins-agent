@@ -1,5 +1,5 @@
 # import plugins_agent.db.plugins_data as plugins_data
-from plugins_agent.agent import AWSAgent
+from plugins_agent.agent import PluginsAgent
 
 # data = plugins_data.load_plugins("data/plugins_files")
 if __name__ == '__main__':
@@ -8,9 +8,9 @@ if __name__ == '__main__':
     # print(plugins_data.get_node_type_property_data(data["aws_plugin"], "nativeedge.nodes.aws.dynamodb.Table",
     #                                                "resource_config"));
 
-    agent = AWSAgent(model_name="mistral-small")
+    agent = PluginsAgent(model_name="mistral-small")
 
-    question = "what node types I need for aws?"
+    question = "what node types I need for awss?"
     expectedAnswer = "list_node_types for aws"
     answer = agent.ask(question + '\n')
     print("Question:" + question)

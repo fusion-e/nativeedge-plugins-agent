@@ -1,0 +1,11 @@
+#kind: PersistentVolumeClaim
+#apiVersion: v1
+#metadata:
+#  name: {{ .Chart.Name }}-{{ .Values.service_name }}-home
+#spec:
+#  storageClassName: {{ .Values.pvc.storageClass }}
+#  accessModes:
+#    - {{ .Values.pvc.accessMode }}
+#  resources:
+#    requests:
+#      storage: {{ .Values.pvc.size }}

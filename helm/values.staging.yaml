@@ -1,0 +1,7 @@
+image:
+  tag: ""
+
+ingress:
+  annotations:
+    alb.ingress.kubernetes.io/group.name: saas-dsp-portal-staging
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:816069151864:certificate/b11d162c-f8b2-4b7d-a722-524da4b7f639

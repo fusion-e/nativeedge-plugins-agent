@@ -1,0 +1,7 @@
+image:
+  tag: ""
+  
+ingress:
+  annotations:
+    alb.ingress.kubernetes.io/group.name: saas-dsp-portal-production
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:008791006138:certificate/bccd01c0-7701-4aa3-adfe-ec4d1e929188

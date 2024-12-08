@@ -2,3 +2,19 @@ langchain
 langchain-ollama
 
 PyYAML~=6.0.2
+
+click==8.0.1
+colorama==0.4.4
+Flask==2.2.2
+Flask-Session==0.4.0
+itsdangerous==2.0.1
+Jinja2==3.0.1
+MarkupSafe==2.1.1
+Werkzeug==2.2.2
+kafka-python3==3.0.0
+pysftp==0.2.9
+google-cloud-storage==2.5.0
+google-cloud-core==2.3.2
+thread6==0.2.0
+tqdm==4.64.1
+nats-py==2.6.0
