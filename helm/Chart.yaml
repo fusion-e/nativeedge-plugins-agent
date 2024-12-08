@@ -1,0 +1,9 @@
+---
+apiVersion: v2
+name: nativeedge-plugins-agent-chart
+description: A Helm Chart for nativeedge-plugins-agent-chart
+version: 0.0.5
+appVersion: 0.0.5
+keywords:
+- nativeedge-plugins-agent-chart
+icon: https://www.svgrepo.com/download/376321/google-gke.svg

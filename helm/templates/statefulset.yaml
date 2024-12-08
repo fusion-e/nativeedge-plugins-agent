@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: "{{ .Chart.Name }}-{{ .Values.service_name }}"
+  labels:
+    app: "{{ .Chart.Name }}-{{ .Values.service_name }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Chart.Name }}-{{ .Values.service_name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Chart.Name }}-{{ .Values.service_name }}"
+    spec:
+      containers:
+      - name: "{{ .Chart.Name }}-{{ .Values.service_name }}"
+        image: "{{ .Values.aws_account }}.dkr.ecr.{{ .Values.aws_region }}.amazonaws.com/{{ .Values.service_name }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.service_port }}
+        env:
+          - name: whoami
+            value: {{ quote .Values.service_name }}
+          - name: remote_host
+            value: {{ quote .Values.remote_host }}
+          - name: ssh_user
+            value: {{ quote .Values.ssh_user }}
+          - name: ssh_key
+            value: {{ quote .Values.ssh_key }}
+        volumeMounts:
+          # - name: home
+          #  mountPath: /home
+          - mountPath: /home/docker/.ssh/authorized_keys
+            name: user-public-key
+            readOnly: true
+            subPath: authorized_keys
+      volumes:
+        # - name: home
+        #   persistentVolumeClaim:
+        #    claimName: "{{ .Chart.Name }}-{{ .Values.service_name }}-home"
+        - name: user-public-key
+          secret:
+            secretName: "{{ .Chart.Name }}-{{ .Values.service_name }}"

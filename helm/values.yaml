@@ -1,0 +1,18 @@
+releaseTag: latest
+service_port: 5000
+port_name: flask-api
+service_name: nativeedge-plugins-agent
+ssh_port: 22
+ingress: true
+namespace: nativeedge-plugins-agent
+aws_account: "702886132326"
+aws_region: eu-west-1
+domain: dev.sp.dell.com
+remote_host: "dev"
+ssh_user: "docker"
+ssh_key: "/home/docker/.ssh/id_rsa"
+ssh_user_public_key: bWVnYV9zZWNyZXRfa2V5Cg==
+pvc:
+  storageClass: gp3
+  accessMode: ReadWriteOnce
+  size: 1Gi

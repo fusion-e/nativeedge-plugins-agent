@@ -1,0 +1,25 @@
+name: Plugins-Agent Build, Package and Deploy
+run-name: "Build & Deploy nativeedge-plugins-agent (branch: ${{ github.ref }})"
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - 'main'
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch: {}
+
+jobs:
+  build-pkg-deploy:
+    name: build-pkg-deploy
+    uses: fusion-e/dsp-portal-base-workflows/.github/workflows/reusable-build-pkg-deploy.yml@v0.0.5
+    with:
+      aws-region: eu-west-1
+      aws-account: 702886132326
+      service-name: nativeedge-plugins-agent
+      chart-name: nativeedge-plugins-agent-chart
+      namespace: nativeedge-plugins-agent
+      service-dir: nativeedge-plugins-agent
+    secrets:
+      base-workflows-gh-token: ${{ secrets.AUTH_TOKEN_GITHUB_COM }}

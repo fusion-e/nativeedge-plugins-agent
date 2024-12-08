@@ -1,0 +1,7 @@
+image:
+  tag: "" # To be overriden during the PR workflow
+
+ingress:
+  annotations:
+    alb.ingress.kubernetes.io/group.name: saas-dsp-portal-dev
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:702886132326:certificate/aa01e3eb-053d-40c7-8f00-5f70741a3b3d
